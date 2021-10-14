@@ -1,6 +1,3 @@
-
-
-
 SECRET_KEY = 'django-insecure-)wmx@n=r_sk%_ysohh191r%rb(=!8e!)&$-4%e#t4$50_*=q3p'
 
 DATABASES = {
