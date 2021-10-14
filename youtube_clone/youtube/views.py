@@ -7,8 +7,8 @@ from rest_framework import status
 from .models import Reply
 
 class CommentList(APIView):
-    def get(self, request):
-        comment = Comment.objects.filter(Comment.video_id)
+    def get(self, request, video):
+        comment = Comment.objects.filter(video_id = video)
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data)
 
@@ -20,8 +20,8 @@ class CommentList(APIView):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class ReplyList(APIView):
-    def get(self, request):
-        reply = Reply.objects.filter(Reply.comment_id)
+    def get(self, request, comment):
+        reply = Reply.objects.filter(comment_id = comment)
         serializer = ReplySerializer(reply, many = True)
         return Response(serializer.data)
 
