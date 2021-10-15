@@ -5,9 +5,9 @@ from .models import Reply
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["comment_text", "likes", "dislikes", "video_id"]
+        fields = ['videoid', 'comment', 'likes', 'dislikes']
 
 class ReplySerializer(serializers.ModelSerializer):
-    class Meta :
+    class Meta:
         model = Reply
-        fields = ["reply_text", "comment_id"]
+        fields = ['commentid', 'reply']

@@ -1,11 +1,13 @@
 from django.db import models
 
-class Comment(models.Model): 
-    comment_text = models.CharField(max_length=300)
-    likes = models.IntegerField()
-    dislikes = models.IntegerField()
-    video_id = models.CharField(max_length=300)
+# Create your models here.
+class Comment(models.Model):
+    videoid = models.TextField(max_length=300)
+    comment = models.TextField(max_length=300)
+    likes = models.IntegerField(blank=False, null=False)
+    dislikes = models.IntegerField(blank=False, null=False)
 
 class Reply(models.Model):
-    reply_text = models.CharField(max_length=300)
-    comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    commentid = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    reply = models.TextField(max_length=300)
+    name = models.TextField(max_length=300)
